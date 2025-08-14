@@ -1,0 +1,9 @@
+{
+  "scripts": [
+    { "name": "install_wordpress", "path": "scripts/install_wordpress.sh", "sha256": "REPLACE_ME" },
+    { "name": "check_cpu",         "path": "scripts/check_cpu.sh",         "sha256": "REPLACE_ME" },
+    { "name": "check_diskspace",   "path": "scripts/check_diskspace.sh",   "sha256": "REPLACE_ME" },
+    { "name": "check_uptime",      "path": "scripts/test_file.sh",         "sha256": "REPLACE_ME" }
+  ]
+}
+

@@ -9,10 +9,10 @@ BUILD_DIR=dist
 ENTRY_POINT=cmd/agent/main.go
 
 build:
-	CGO_ENABLED=0 GOOS=darwin GOARCH=arm64 \
-	go build -ldflags="-s -w" -o $(BUILD_DIR)/$(APP_BASE_NAME)-darwin-arm64 $(ENTRY_POINT)
-	strip $(BUILD_DIR)/$(APP_BASE_NAME)-darwin-arm64 || true
-	upx --best --lzma $(BUILD_DIR)/$(APP_BASE_NAME)-darwin-arm64 || true
+	CGO_ENABLED=0 GOOS=$(shell go env GOOS) GOARCH=$(shell go env GOARCH) \
+	go build -ldflags="-s -w" -o $(BUILD_DIR)/$(APP_NAME) $(ENTRY_POINT)
+	strip $(BUILD_DIR)/$(APP_NAME) || true
+	upx --best --lzma $(BUILD_DIR)/$(APP_NAME) || true
 
 size:
 	du -h $(BUILD_DIR)/$(APP_NAME)
